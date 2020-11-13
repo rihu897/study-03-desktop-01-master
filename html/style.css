@@ -1,0 +1,5 @@
+/* 課題5：ログ表示領域にクラスを定義してCSSを適用 */
+.display_box {
+    width: 400px;
+    height: 500px;
+}
