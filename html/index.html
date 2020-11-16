@@ -22,9 +22,9 @@
             // id="search"の要素がクリックされた時
             search.addEventListener('click', () => {
                 //let csv = document.getElementById("csv").value;   // CSVファイル名
-                let csv = csv_name.value; // 動かない・・・
+                let csv = csv_name.value; // id名.valueで取得する場合、変数名とid名を別にする（同じだと動かない）
                 //let word = document.getElementById("word").value; // 検索ワード
-                let word = search_word.value; // 動かない・・・
+                let word = search_word.value; 
                 // すべての項目が入力されている場合
                 if (word.length > 0 && csv.length > 0) {
                     // 検索処理呼び出し
