@@ -7,12 +7,12 @@
         <h2>eelテスト</h2>
         <!-- 課題1：検索ワード入力と検索ボタンの作成 -->
         <form>
-            <p>CSVファイル名：<input id="csv" type="text" value=""></p>
-            <p>検索ワード：<input id="word" type="text" value="">
+            <p>CSVファイル名：<input id="csv_name" type="text" value=""></p>
+            <p>検索ワード：<input id="search_word" type="text" value="">
                 <input id="search" type="button" value="検索">
             </p>
             <!-- 課題3：ログ表示領域の作成 -->
-            <p><textarea readonly id="log" class="display_box" value=""></textarea></p>
+            <p><textarea readonly id="view_log" class="display_box" value=""></textarea></p>
         </form>
         <!-- eel.js読み込み -->
         <script type="text/javascript" src="./eel.js"></script>
@@ -21,10 +21,10 @@
             const search = document.getElementById("search");   // 検索ボタン
             // id="search"の要素がクリックされた時
             search.addEventListener('click', () => {
-                let csv = document.getElementById("csv").value;   // CSVファイル名
-                //let csv = csv.value; // 動かない・・・
-                let word = document.getElementById("word").value; // 検索ワード
-                //let word = word.value; // 動かない・・・
+                //let csv = document.getElementById("csv").value;   // CSVファイル名
+                let csv = csv_name.value; // 動かない・・・
+                //let word = document.getElementById("word").value; // 検索ワード
+                let word = search_word.value; // 動かない・・・
                 // すべての項目が入力されている場合
                 if (word.length > 0 && csv.length > 0) {
                     // 検索処理呼び出し
@@ -45,7 +45,7 @@
                 // 検索結果をログ出力用変数に追記
                 log = log + result + '\n';
                 // ログ出力
-                document.getElementById("log").innerHTML = log;
+                view_log.innerHTML = log;
             }
         </script>
     </body>
