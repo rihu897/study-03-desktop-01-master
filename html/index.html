@@ -22,17 +22,19 @@
             // id="search"の要素がクリックされた時
             search.addEventListener('click', () => {
                 let csv = document.getElementById("csv").value;   // CSVファイル名
+                //let csv = csv.value; // 動かない・・・
                 let word = document.getElementById("word").value; // 検索ワード
-                // 検索ワードが入力されている場合
-                if (word.length > 0) {
+                //let word = word.value; // 動かない・・・
+                // すべての項目が入力されている場合
+                if (word.length > 0 && csv.length > 0) {
                     // 検索処理呼び出し
                     eel.kimetsu_search(word, csv);
                 }
                 // 課題2：検索ワード未入力時にアラートを表示
-                // 検索ワードが入力されていないの場合
+                // 未入力の項目がある場合
                 else {
                     // アラートを表示
-                    alert("検索ワードが入力されていません");
+                    alert("未入力の項目があります");
                 }
             });
             // ログ出力用変数
