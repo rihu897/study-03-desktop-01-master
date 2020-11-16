@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <title>eelテスト</title>
+        <link rel="stylesheet" href="./style.css">
+    </head>
+    <body>
+        <h2>eelテスト</h2>
+        <!-- 課題1：検索ワード入力と検索ボタンの作成 -->
+        <form>
+            <p>CSVファイル名：<input id="csv" type="text" value=""></p>
+            <p>検索ワード：<input id="word" type="text" value="">
+                <input id="search" type="button" value="検索">
+            </p>
+            <!-- 課題3：ログ表示領域の作成 -->
+            <p><textarea readonly id="log" class="display_box" value=""></textarea></p>
+        </form>
+        <!-- eel.js読み込み -->
+        <script type="text/javascript" src="./eel.js"></script>
+        <!-- 課題4：ログ表示領域にkimetsu_searchの結果を出力 -->
+        <script>
+            const search = document.getElementById("search");   // 検索ボタン
+            // id="search"の要素がクリックされた時
+            search.addEventListener('click', () => {
+                let csv = document.getElementById("csv").value;   // CSVファイル名
+                //let csv = csv.value; // 動かない・・・
+                let word = document.getElementById("word").value; // 検索ワード
+                //let word = word.value; // 動かない・・・
+                // すべての項目が入力されている場合
+                if (word.length > 0 && csv.length > 0) {
+                    // 検索処理呼び出し
+                    eel.kimetsu_search(word, csv);
+                }
+                // 課題2：検索ワード未入力時にアラートを表示
+                // 未入力の項目がある場合
+                else {
+                    // アラートを表示
+                    alert("未入力の項目があります");
+                }
+            });
+            // ログ出力用変数
+            let log = "";
+            // 検索結果出力処理
+            eel.expose(view_log_js);
+            function view_log_js(result){
+                // 検索結果をログ出力用変数に追記
+                log = log + result + '\n';
+                // ログ出力
+                document.getElementById("log").innerHTML = log;
+            }
+        </script>
+    </body>
+</html>
